@@ -1,0 +1,18 @@
+.data-container
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), 
+      :html => {:class => 'has-validation form-horizontal'}) do |f|
+    fieldset
+      legend Login
+      .control-group
+        = f.email_field :email, :id => 'email', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Email'
+      .control-group
+        = f.password_field :password, :id => 'password', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Password'
+      .control-group
+        button.btn.btn-primary type="submit"
+          = 'Login'
+      br
+      br
+      .control-group
+          = render "devise/shared/links"

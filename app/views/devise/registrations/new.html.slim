@@ -1,0 +1,23 @@
+.data-container
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name),
+        :html => {:class => 'has-validation form-horizontal'}) do |f|
+    = devise_error_messages!
+    fieldset
+      legend Register
+      .control-group
+        = f.email_field :email, :id => 'email', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Email',
+            :autofocus => true
+      .control-group
+        = f.password_field :password, :id => 'password', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Password'
+      .control-group
+        = f.password_field :password_confirmation, :id => 'password_confirmation', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Confirm password'
+      .control-group
+        button.btn.btn-primary type="submit"
+          = 'Register'
+      br
+      br
+      .control-group
+          = render "devise/shared/links"

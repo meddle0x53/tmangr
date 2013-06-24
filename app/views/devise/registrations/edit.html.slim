@@ -1,0 +1,38 @@
+javascript:
+  $(document).ready(function() {
+    $('.tmangr-ember-main').hide();
+  });
+
+.data-container
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name),
+        :html => {:class => 'has-validation form-horizontal', :method => :put}) do |f|
+    = devise_error_messages!
+    fieldset
+      legend Edit account
+      .control-group
+        = f.email_field :email, :id => 'email', 
+            :class => 'full input-xlarge', :required => '', :placeholder => 'Email',
+            :autofocus => true
+      .control-group
+        = f.password_field :password, :id => 'password', 
+            :class => 'full input-xlarge', :required => false, :placeholder => 'Password',
+            :autocomplete => "off", :hint => "leave it blank if you don't want to change it"
+      .control-group
+        = f.password_field :password_confirmation, :id => 'password_confirmation', 
+            :class => 'full input-xlarge', :required => false, :placeholder => 'Confirm password'
+      br
+      br
+      .control-group
+        = f.password_field :current_password, :id => 'current_password', 
+            :class => 'full input-xlarge', :required => true, :placeholder => 'Current password',
+            :hint => "we need your current password to confirm your changes"
+      .control-group
+        button.btn.btn-primary type="submit"
+          = 'Update'
+      br
+      br
+      .control-group
+        h3 Cancel my account
+        p
+          | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+        = link_to "Back", :back
