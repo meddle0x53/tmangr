@@ -29,6 +29,8 @@ gem 'pusherable'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+
+  gem 'qunit-rails'
 end
 
 group :test do
