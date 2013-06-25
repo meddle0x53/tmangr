@@ -25,7 +25,6 @@ describe "registered user visits" do
   it "can log out" do
     visit "/"
 
-    save_and_open_page
     page.should have_content("Log out")
 
     click_link 'Log out'
