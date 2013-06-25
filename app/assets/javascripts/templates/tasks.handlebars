@@ -1,2 +1,67 @@
 <h1>Tasks</h1>
 
+<table class="table tasks">
+    <thead>
+      <tr>
+        <th class="span2">
+          <a {{action sort "created_at"}}>
+            Created:
+          </a>
+        </th>
+        <th class="span2">
+          <a {{action sort "owner.email"}}>
+            Assigner:
+          </a>
+        </th>
+        <th class="span2">
+          <a {{action sort "performer.email"}}>
+            Assignee:
+          </a>
+        </th>
+        <th class="span4">
+          <a {{action sort "description"}}>
+            Description:
+          </a>
+        </th>
+        <th class="span1">
+          <a {{action sort "state"}}>
+            Status:
+          </a>
+        </th>
+        <th class="span1">
+          Options
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each task in controller.arrangedContent}}
+      {{#if task.id}}
+        {{log currentUser.id}}
+        <tr {{bindAttr class=":task task.state"}}>
+          <td>
+            {{task.created_at}}
+          </td>
+          <td>
+            {{task.owner.email}}
+          </td>
+          <td>
+            {{task.performer.email}}
+          </td>
+          <td>
+            {{task.description}}
+          </td>
+          <td>
+            {{task.state}}
+          </td>
+          <td>
+            <div class="btn-group">
+              <a class="pull-right btn-delete-task"><i class="icon-remove"></i></a>
+            </div>
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+    </tbody>
+</table>
+
+

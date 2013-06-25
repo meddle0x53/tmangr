@@ -20,6 +20,7 @@
 //= require ember-data
 //= require_self
 //= require task_management
+//= require tasks
 
 TaskManagement = Ember.Application.create({
   LOG_TRANSITIONS: true,
