@@ -76,5 +76,9 @@ module Tmangr
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    Pusher.app_id = '47252'
+    Pusher.key = 'db833c9b19239870ba9f'
+    Pusher.secret = '490c3424eb402b3691d1'
   end
 end

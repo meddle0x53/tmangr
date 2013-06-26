@@ -21,6 +21,8 @@
 //= require_self
 //= require task_management
 //= require tasks
+//= require pusher.min
+//= require pusher
 
 TaskManagement = Ember.Application.create({
   LOG_TRANSITIONS: true,
