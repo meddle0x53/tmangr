@@ -15,6 +15,10 @@ group :assets do
   gem 'jquery-rails'
 end
 
+gem 'websocket-rails'
+
+gem 'thin'
+
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc5'
 gem 'handlebars-source', '1.0.0.rc4'
@@ -22,9 +26,6 @@ gem 'handlebars-source', '1.0.0.rc4'
 gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
 gem 'slim-rails'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
-
-gem 'pusher'
-gem 'pusherable'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.ui.all
+//= require websocket_rails/main
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -28,4 +29,6 @@ TaskManagement = Ember.Application.create({
 });
 
 //= require_tree .
+
+//= require websocket_rails/main
 

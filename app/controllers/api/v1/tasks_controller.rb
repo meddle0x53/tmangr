@@ -21,6 +21,7 @@ class Api::V1::TasksController < ApplicationController
     task.state = 'opened'
 
     if task.save
+      WebsocketRails[:main].trigger('task.create', task)
       render json: task, status: :ok
     else
       render json: task.errors, status: :unprocessable_entity
@@ -35,6 +36,7 @@ class Api::V1::TasksController < ApplicationController
     task = Task.find(params[:id])
 
     if task.update_attributes(params[:task])
+      WebsocketRails[:main].trigger('task.update', task)
       render json: task, status: :ok
     else
       render json: task.errors, status: :unprocessable_entity
@@ -44,6 +46,7 @@ class Api::V1::TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy
+    WebsocketRails[:main].trigger('task.destroy', task)
     render json: nil, status: :ok
   end
 
