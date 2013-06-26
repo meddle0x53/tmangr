@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <div class="button close btn-dismiss" {{action cancel content}}>x</div>
+  <h2 class="app-icon-large">Task</h2>
+</div>
+ 
+<div class="modal-body">
+  <div class="row">
+    <h5>
+      Created {{created_at}} by {{owner.email}}
+    </h5>
+  </div>
+  <div class="row">
+    <article>
+      <header>
+        <h5>Description:</h5>
+      </header>
+      <section>
+        {{description}}
+      </section>
+    <article>
+  </div>
+</div>
+ 
+<div class="modal-footer">
+  <div class="row">
+    <a class="btn btn-info" href="javascript;:" {{action ok}}>OK</a>
+  </div>
+</div>

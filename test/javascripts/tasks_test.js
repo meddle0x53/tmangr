@@ -51,3 +51,59 @@ test("/tasks:sort", function() {
     equal(expected, first_desc)
   });
 });
+
+test("/tasks:new", function() {
+  expect(2);
+
+  visit("/tasks").then(function() {
+    equal(0, find(":contains('<><>Do the dishes!<><>')").length);
+    return click('.btn-new-task')
+  }).then(function() {
+    fillIn('#description', '<><>Do the dishes!<><>')
+    return click('[type=submit]')
+  }).then(function() {
+    ok(exists("*"), '<><>Do the dishes!<><>');
+
+    test("/tasks:view", function() {
+      expect(2);
+
+      visit("/tasks").then(function() {
+        ok(exists("*"), '<><>Do the dishes!<><>');
+        return click('.btn-view-task', "tr:contains('<><>Do the dishes!<><>')");
+      }).then(function() {
+        ok(exists("*"), '<><>Do the dishes!<><>');
+        return click('.btn');
+      }).then(function() {
+        test("/tasks:edit", function() {
+          expect(3);
+
+          visit("/tasks").then(function() {
+            ok(exists("*"), '<><>Do the dishes!<><>');
+            return click('.btn-edit-task', "tr:contains('<><>Do the dishes!<><>')");
+          }).then(function() {
+            fillIn('#description', '<><>Done!<><>')
+            return click('[type=submit]')
+          }).then(function() {
+            ok(exists("*"), '<><>Done!<><>');
+            equal(0, find(":contains('<><>Do the dishes!<><>')").length);
+
+            test("/tasks:delete", function() {
+              expect(2);
+
+              visit("/tasks").then(function() {
+                ok(exists("*"), '<><>Done!<><>');
+                return click('.btn-delete-task', "tr:contains('<><>Done!<><>')");
+              }).then(function() {
+                equal(0, find(":contains('<><>Done!<><>')").length);
+              });
+            });
+
+          });
+        });
+      });
+    });
+  });
+});
+
+
+

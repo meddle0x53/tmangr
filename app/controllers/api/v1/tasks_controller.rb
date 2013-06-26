@@ -13,11 +13,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
-    if params[:task][:performer].present?
-      params[:task][:performer_id] = params[:task][:performer][:id]
-      params[:task].delete(:performer)
-    end
-    p params
+    clean_up_params!(params)
 
     task = Task.new(params[:task])
     task.owner = current_user
@@ -32,8 +28,9 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def update
+    clean_up_params!(params)
+
     task = Task.find(params[:id])
-    params[:task][:created_at] = nil
 
     if task.update_attributes(params[:task])
       render json: task, status: :ok
@@ -48,4 +45,19 @@ class Api::V1::TasksController < ApplicationController
     render json: nil, status: :ok
   end
 
+  private
+
+  def clean_up_params!(params)
+    if params[:task][:performer].present?
+      params[:task][:performer_id] = params[:task][:performer][:id]
+      params[:task].delete(:performer)
+    end
+    if params[:task][:owner].present?
+      params[:task][:owner_id] = params[:task][:owner][:id]
+      params[:task].delete(:owner)
+    end
+    params[:task].delete(:created_at)
+  end
+
 end
+

@@ -1,5 +1,14 @@
 <h1>Tasks</h1>
 
+<p>
+  {{#linkTo "tasks.new" class="btn btn-new-task"}}<i class="icon-plus-sign"></i> New task{{/linkTo}}
+</p>
+<div class="popup">
+  <div class="popup-content">
+    {{outlet}}
+  </div>
+</div>
+
 <table class="table tasks">
     <thead>
       <tr>
@@ -54,8 +63,10 @@
             {{task.state}}
           </td>
           <td>
-            <div class="btn-group">
-              <a class="pull-right btn-delete-task"><i class="icon-remove"></i></a>
+            <div class="btn-group task-options pull-right">
+              {{#linkTo "task.view" task class="btn-view-task"}}<i class="icon-eye-open"></i>{{/linkTo}}
+              {{#linkTo "task.edit" task class="btn-edit-task"}}<i class="icon-wrench"></i>{{/linkTo}}
+              <a class="btn-delete-task" {{action destroyTask task}}><i class="icon-remove"></i></a>
             </div>
           </td>
         </tr>
