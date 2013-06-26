@@ -13,6 +13,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
+    params.permit!
     clean_up_params!(params)
 
     task = Task.new(params[:task])
@@ -28,6 +29,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def update
+    params.permit!
     clean_up_params!(params)
 
     task = Task.find(params[:id])
