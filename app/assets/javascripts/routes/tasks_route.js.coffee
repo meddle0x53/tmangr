@@ -31,6 +31,8 @@ TaskManagement.TasksRoute = Ember.Route.extend
     if (data.performer_id != id) && (data.owner_id != id)
       task.deleteRecord()
       return
+    if task.get('isDirty')
+      task.rollback()
 
     task.set('description', data.description)
     task.set('performer_id', data.performer_id)
