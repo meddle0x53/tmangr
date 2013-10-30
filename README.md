@@ -55,7 +55,8 @@ This application has both client side and server side integration and unit tests
 
 1. Run the client side tests from the browser. Open http://localhost:3000/qunit
 2. Source code for the client tests can be found in the 'test/javascript' folder.
-3. Running server-side tests
-```
- bundle exec rspec spec/
-```
+3. Running server-side tests. Just navigate to the application root and run:
+
+  ```
+  bundle exec rspec spec/
+  ```
