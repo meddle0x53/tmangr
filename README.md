@@ -17,7 +17,7 @@ This guede is for developer using real OS - Unix based, if you use windows read 
   curl -L https://get.rvm.io | bash
   rvm requirements
   ```
-  1.2. Make sure you follow the instructions that are presented by you by the requirements command.
+  1.2. Make sure you follow the instructions that are presented to you by the requirements command.
   1.3. Install Ruby
   ```
   rvm install ruby-2.0.0-p195 
@@ -49,3 +49,8 @@ rails s
 6. Navigate with modern browser to the application on http://localhost:3000
 7. Log in as the user 'meddle@tmangr.com' with password '123456'
 8. Play arround!
+
+## Running the tests
+This application has both client side and server side integration and unit tests.
+1. Run the client side tests from the browser. Open http://localhost:3000/qunit
+2. Source code for the client tests can be found in the 'test/javascript' folder.
