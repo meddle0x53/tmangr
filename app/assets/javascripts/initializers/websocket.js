@@ -2,7 +2,8 @@ TaskManagement.Sock = Ember.Object.extend({
   key: null,
 
   init: function() {
-    this.dispatcher = new WebSocketRails('localhost:3000/websocket');
+    this.dispatcher = new WebSocketRails('ws://' + window.location.host + '/websocket');
+
 
     this.dispatcher.on_open = function() {console.log('conected')};
   },

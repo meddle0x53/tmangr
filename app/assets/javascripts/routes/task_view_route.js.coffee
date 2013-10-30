@@ -2,7 +2,7 @@ TaskManagement.TaskViewRoute = Ember.Route.extend
   renderTemplate: ->
     @render 'task_view', ->
       outlet: 'modal'
-  events:
+  actions:
     cancel: () ->
       @transitionTo 'tasks'
     ok: () ->

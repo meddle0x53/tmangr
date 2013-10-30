@@ -2,7 +2,7 @@ TaskManagement.TasksFormable = Ember.Mixin.create
   renderTemplate: ->
     @render 'tasks/form', ->
       outlet: 'modal'
-  events:
+  actions:
     cancel: (task) ->
       task.transaction.rollback()
       @transitionTo 'tasks'

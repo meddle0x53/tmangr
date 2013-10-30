@@ -8,3 +8,4 @@
 
 User.create(:email => 'meddle@tmangr.com', :password => '123456', :password_confirmation => '123456')
 User.create(:email => 'steffen@tmangr.com', :password => '123456', :password_confirmation => '123456')
+User.create(:email => 'vesko@tmangr.com', :password => '123456', :password_confirmation => '123456')

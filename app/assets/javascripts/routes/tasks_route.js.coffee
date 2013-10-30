@@ -6,7 +6,11 @@ TaskManagement.TasksRoute = Ember.Route.extend
   activate: () ->
     @get("sock").subscribe("main")
 
-  events:
+  actions:
+    destroyTask: (task) ->
+      task.deleteRecord()
+      task.get('store').commit()
+
     'task.create': (data) ->
       id = parseInt(@get('currentUser').get('id'), 10)
       if (data.performer_id != id) && (data.owner_id != id)
