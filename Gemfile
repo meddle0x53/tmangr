@@ -20,8 +20,7 @@ gem 'websocket-rails'
 gem 'thin'
 
 gem 'ember-rails'
-gem 'ember-source', '1.0.0.rc5'
-gem 'handlebars-source', '1.0.0.rc4'
+gem 'ember-source', '1.1.2'
 
 gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
 gem 'slim-rails'
